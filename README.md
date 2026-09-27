@@ -4,6 +4,18 @@
 
 小艾是一个由本地 Ollama 驱动的情感陪伴数字人 MVP。当前版本已经跑通用户注册登录、流式陪伴对话、Blender 数字人及四个动作、账号隔离的本地知识库、陪伴风格约束、一周状态自测、非诊断性状态报告，以及管理员风险预警与处置流程，不需要云端 API Key。
 
+## 运行界面
+
+<img width="1920" height="945" alt="4d1075f7f3f9ec21bb62858fecf6fc9f" src="https://github.com/user-attachments/assets/e2e6897f-78d7-42f1-bc8c-6097115416b2" />
+<img width="1920" height="945" alt="dc5b2cf23292b4ee5adb37a667291e70" src="https://github.com/user-attachments/assets/5c03b563-79c6-4913-bea9-01bc5e3534d2" />
+<img width="1920" height="945" alt="5c19b08c80fb5816ff988d978d77e9fb" src="https://github.com/user-attachments/assets/02c47894-c429-4959-87d2-982a5efb150e" />
+<img width="1920" height="945" alt="b8a00b5b5f292cf85e611990d5434b86" src="https://github.com/user-attachments/assets/f358ded6-7546-40f8-93c1-790ac4087eef" />
+<img width="1920" height="945" alt="ec62ba592854e51f93f5f3e082a7a2fd" src="https://github.com/user-attachments/assets/0b1704df-7100-44fa-a734-c4e77e53b1bc" />
+<img width="1920" height="945" alt="bfca62ce874454d4bbe48ffbc2b179de" src="https://github.com/user-attachments/assets/e601c9e1-734f-47c7-b8b9-d42661a826fa" />
+<img width="1920" height="945" alt="2691e380dc9b769152ad2ca3d8f7f9ef" src="https://github.com/user-attachments/assets/4008fa45-0d8b-4b7d-9779-261bf04b2982" />
+
+
+
 ## 小艾的人设
 
 小艾温柔、自然、真诚，先倾听，再提供少量实际建议。她不是医生、心理咨询师或真人，不做诊断，也不会诱导用户只依赖数字人。自伤、自杀或伤害他人的危机表达会绕过普通聊天，直接进入安全回复模式。
