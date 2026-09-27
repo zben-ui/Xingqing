@@ -1,0 +1,266 @@
+# 索引用_02_RAG心理教育知识_kb1-32（来源：psych_rag_kb.csv，不含课程类别专条）
+# 编码：UTF-8
+# 每条条目含 [KB_ID] 与元数据，与向量库、CSV 的 id 列对应。
+#
+
+[KB_ID:1]
+topic: cluster_low_burden_interpretation
+source_type: concept_explanation
+applicable_clusters: 低心理负荷相对平稳型
+applicable_flags: （空）
+risk_level: low
+source: study_derived
+content: 低心理负荷相对平稳型并不意味着学生不存在任何心理压力，而是表示其整体心理负荷水平相对较低，当前更接近「相对平稳但仍需关注变化」的状态。
+
+[KB_ID:2]
+topic: cluster_high_burden_interpretation
+source_type: concept_explanation
+applicable_clusters: 高心理负荷型
+applicable_flags: （空）
+risk_level: medium
+source: study_derived
+content: 高心理负荷型表示学生在多个心理风险维度上同时表现出较高负荷，其特点更接近多维度心理困扰共现，而不是单一因子问题。
+
+[KB_ID:3]
+topic: upi_interpretation
+source_type: concept_explanation
+applicable_clusters: （空）
+applicable_flags: upi_flag
+risk_level: medium
+source: self_curated
+content: UPI 阳性通常提示学生在整体心理健康风险筛查中呈现更高关注需求，应结合其他心理因子与现实表现综合理解，而非单独作出结论。
+
+[KB_ID:4]
+topic: depression_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_depression_flag
+risk_level: medium
+source: self_curated
+content: 抑郁相关阳性信号可能伴随学习动力下降、兴趣减弱、精力不足和自我评价降低，在学业任务执行中可能表现为拖延、效率下降或持续疲惫。
+
+[KB_ID:5]
+topic: anxiety_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: self_curated
+content: 焦虑相关阳性信号可能表现为持续紧张、担忧增加、注意力易分散以及对结果过度担心，可能对考试表现和学习效率造成影响。
+
+[KB_ID:6]
+topic: interpersonal_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_interpersonal_sensitivity_flag
+risk_level: medium
+source: self_curated
+content: 人际关系敏感相关阳性信号可能表现为对评价更敏感、在社交或合作情境中更容易产生压力，这可能间接影响课堂参与、合作学习与求助行为。
+
+[KB_ID:7]
+topic: obsessive_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_obsessive_flag
+risk_level: medium
+source: self_curated
+content: 强迫相关阳性信号可能表现为反复确认、对细节高度在意或难以停止某些思维与行为，在学习中可能表现为效率受损或完美主义压力增加。
+
+[KB_ID:8]
+topic: psychoticism_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_psychoticism_flag
+risk_level: high
+source: self_curated
+content: 精神病性维度阳性信号在非临床筛查中仅表示相关风险负荷较高，不能直接等同于精神障碍诊断，应特别注意审慎表述与后续专业支持建议。
+
+[KB_ID:9]
+topic: paranoid_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_paranoid_flag
+risk_level: medium
+source: self_curated
+content: 偏执相关阳性信号可能与不信任感增加、对他人评价更敏感有关，在学习和社交场景中可能增加误解和压力感。
+
+[KB_ID:10]
+topic: hostility_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_hostility_flag
+risk_level: medium
+source: self_curated
+content: 敌对相关阳性信号可能与易烦躁、情绪控制压力增加有关，可能影响人际互动和日常学习状态。
+
+[KB_ID:11]
+topic: low_burden_general_support
+source_type: support_recommendation
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: self_curated
+content: 对整体状态相对平稳的学生，建议继续保持规律作息、稳定学习节奏，并在阶段性考试、课程压力或求职准备期间主动监测自身压力变化。
+
+[KB_ID:12]
+topic: high_burden_general_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 对于整体心理负荷较高的学生，建议优先采用低门槛、可持续的支持方式，如规律作息、任务分解、固定学习时段、逐步求助，而非试图一次性解决所有问题。
+
+[KB_ID:13]
+topic: anxiety_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: self_curated
+content: 若焦虑负担较高，建议将学习任务拆解为更小单元，并使用固定作息、清单化任务管理和考试前复习模板，以减少不确定性带来的额外压力。
+
+[KB_ID:14]
+topic: depression_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_depression_flag
+risk_level: medium
+source: self_curated
+content: 若抑郁相关负荷较高，可优先从恢复日常节律入手，例如固定起居时间、减少长期熬夜、设置可完成的小目标，并通过逐步恢复学习节奏降低无力感。
+
+[KB_ID:15]
+topic: interpersonal_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_interpersonal_sensitivity_flag
+risk_level: medium
+source: self_curated
+content: 若人际敏感较突出，建议优先采用低压力方式建立支持联系，例如从固定同伴、导师沟通或小范围交流开始，减少对单次互动结果的过度解释。
+
+[KB_ID:16]
+topic: obsessive_support
+source_type: support_recommendation
+applicable_flags: scl90_obsessive_flag
+risk_level: medium
+source: self_curated
+content: 若强迫相关特征较突出，建议在学习中使用「完成优先于完美」的原则，限定单项任务投入时间，避免因过度反复检查而影响整体学习推进。
+
+[KB_ID:17]
+topic: hostility_support
+source_type: support_recommendation
+applicable_flags: scl90_hostility_flag
+risk_level: medium
+source: self_curated
+content: 若敌对或易烦躁倾向较明显，建议在高压学习阶段预留短时休息和情绪缓冲时间，避免在明显情绪激活状态下继续高强度学习任务。
+
+[KB_ID:18]
+topic: sleep_routine_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: upi_flag
+risk_level: medium
+source: self_curated
+content: 当整体心理筛检提示负荷较高时，优先恢复睡眠、进食和日常节律通常比一次性追求大量学习补偿更重要，因为节律恢复有助于稳定情绪和注意力。
+
+[KB_ID:19]
+topic: academic_decline_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+applicable_flags: academic_risk
+risk_level: medium
+source: self_curated
+content: 若学生处于较高心理负荷且学业风险升高，建议优先按课程重要性排序任务，先保障核心课程、必修课程和近期截止任务的完成。
+
+[KB_ID:20]
+topic: gpa_low_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 当学生平均 GPA 处于相对不利位置时，建议采用「最低维持线+重点突破」策略，即先避免进一步失分，再集中支持关键课程。
+
+[KB_ID:21]
+topic: core_course_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 若核心课程 GPA 偏低，建议优先识别对专业能力和后续课程影响较大的课程模块，避免把精力平均分散到所有任务上。
+
+[KB_ID:22]
+topic: high_volatility_support
+source_type: academic_support
+applicable_flags: high_volatility
+risk_level: medium
+source: self_curated
+content: 若学生学业表现波动较大，建议结合周计划复盘学习节奏，识别是课程难度变化、情绪状态波动还是作息混乱导致的成绩不稳定。
+
+[KB_ID:23]
+topic: stable_group_academic_support
+source_type: academic_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: self_curated
+content: 对于整体学业表现相对稳定的学生，建议保持已有学习节奏，同时关注阶段性压力源，避免在某一时期因外部变化导致状态突然下滑。
+
+[KB_ID:24]
+topic: help_seeking_general
+source_type: help_seeking_guidance
+risk_level: low
+source: self_curated
+content: 当学生持续感到学习压力、情绪困扰或人际负担明显增加时，主动寻求学校心理中心、辅导员、导师或可信赖同伴的支持通常比独自承受更有效。
+
+[KB_ID:25]
+topic: help_seeking_high_burden
+source_type: help_seeking_guidance
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 对于高心理负荷型学生，建议将求助视为资源使用而非能力不足，可优先从信息性求助开始，如咨询课程安排、学习支持或心理服务流程。
+
+[KB_ID:26]
+topic: suicidal_ideation_help_seeking
+source_type: help_seeking_guidance
+applicable_flags: suicidal_ideation
+risk_level: high
+source: self_curated
+content: 若存在自杀意念相关信号，报告中应明确建议尽快联系专业心理支持资源或学校相关支持渠道，并强调自动生成内容不能替代专业评估。
+
+[KB_ID:27]
+topic: academic_risk_help_seeking
+source_type: help_seeking_guidance
+applicable_flags: academic_risk
+risk_level: medium
+source: self_curated
+content: 若学生同时存在心理负荷升高与学业风险信号，建议尽早联系学习支持资源，如导师、辅导员、学业帮扶或课程咨询渠道。
+
+[KB_ID:28]
+topic: non_diagnostic_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 本报告基于既有心理测评与学业数据自动生成，仅用于辅助理解当前状态与支持性建议，不构成临床诊断结论。
+
+[KB_ID:29]
+topic: non_replacement_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 自动生成报告不能替代专业心理咨询、医学评估或危机干预；如存在明显风险信号，应优先寻求人工和专业支持。
+
+[KB_ID:30]
+topic: cluster_explanation_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 聚类归属反映的是样本内部相对心理负荷差异，用于研究和解释，不应被理解为固定不变的个人标签。
+
+[KB_ID:31]
+topic: balanced_language_guideline
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 报告应使用支持性、非诊断化、非污名化语言，避免夸大风险，也避免弱化明显困难。
+
+[KB_ID:32]
+topic: trajectory_interpretation
+source_type: concept_explanation
+risk_level: low
+source: self_curated
+content: 学业轨迹描述用于补充理解学生在大学阶段的变化趋势，应与当前心理状态和学业表现共同解释，而不应单独作为风险定性依据。
+
+# ==============================================================================
+# 文件结束（KB_ID 1–32）
+# ==============================================================================

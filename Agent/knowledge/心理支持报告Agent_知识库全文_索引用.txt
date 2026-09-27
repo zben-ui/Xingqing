@@ -1,0 +1,530 @@
+# ==============================================================================
+# 心理支持报告 Agent — 知识库全文（文本文档版 / 供模型索引用）
+# ==============================================================================
+# 说明：
+# 1) 本文件由 knowledge 目录下 JSON、CSV 整理合并，便于仅用「文本文档」做向量化/关键词索引或喂给大模型分块学习。
+# 2) 若希望按主题拆成多份 txt，见同目录：索引用_00_说明与文件目录.txt（索引用_01 ～ 索引用_05）。
+#    各 txt/本文与 JSON、CSV 的键与 id 行对应关系见：索引用与源文件JSON_CSV_对应表.md
+# 3) 建议分块：按行首「## 」大段切分，或按「[KB_ID:数字]」逐条 RAG 条文切分。
+# 4) 与运行时代码无自动同步；主程序仍以 cluster_profile_knowledge.json、psych_rag_kb.csv、risk_rules.json 为准。更新知识后请重导本文件。
+# 编码：UTF-8
+# ==============================================================================
+
+
+## 一、研究背景与群体画像（来源：cluster_profile_knowledge.json）
+
+### 1.1 研究对象与分群技术
+
+[段落|study_context]
+- 样本人群：浙江省某高校计算机专业 2019 级、2020 级、2021 级心理风险学生
+- 样本量：381
+- 分群依据：UPI 阳性标记；SCL-90 各因子阳性标记；自杀意念变量
+- 分群方法：KMeans，k=2
+
+### 1.2 课程与成绩相关研究结论（群体层，不推断个体）
+
+[段落|course_outcome_research]
+- 群体比较显示：高心理负荷型学生在数学类平均 GPA、核心课程平均 GPA 上整体低于低心理负荷相对平稳型；语言类平均 GPA 方向与之一致，但统计证据相对较弱、仅为边缘或提示性水平。
+- 心理因子中，焦虑与数学类/核心课程平均 GPA 的负向关联在样本中相对最稳健；UPI 与核心课程平均 GPA 也呈现需关注的负向关联。语言类成绩与单因子独立关联在样本中整体较弱。
+- 上述为研究性、群体性描述，不应用于推断某一学生是否已出现具体绩点、挂科或某门课结果。
+
+### 1.3 元说明与边界
+
+[段落|notes]
+- 本知识库仅用于辅助个体化解释与支持建议生成，不用于临床诊断。
+- 聚类标签反映相对心理负荷差异，而非医学诊断类别。
+- 涉及课程与成绩时须坚持「群体规律」与「可验证个体事实」的区分；当前仅心理档案不得写成个体已有成绩表现。
+
+
+## 二、分群 0：低心理负荷相对平稳型（cluster_id=0）
+
+[分群|低心理负荷相对平稳型|cluster_id:0|population_ratio:0.764]
+
+### 2.1 核心概括（core_summary）
+该群体整体心理负荷相对较低，虽然在强迫和人际关系敏感等维度上仍可见一定比例的阳性样本，但整体风险暴露水平低于另一群体。在研究样本中，其学业相关指标在群体水平上通常更稳定。
+
+### 2.2 心理特征要点（psychological_characteristics）
+- UPI 阳性率相对较低
+- 自杀意念比例相对较低
+- 大多数 SCL-90 阳性率低于高心理负荷型
+- 强迫和人际关系敏感是该群体中相对更常见的两个维度，但整体仍低于高心理负荷型
+
+### 2.3 学业相关群体描述（academic_characteristics，研究语境）
+- 在样本的群体比较中，平均 GPA、核心课程与数学类相关成绩指标整体位置相对更稳
+- 与高心理负荷型相比，在数学类与核心课程维度的组间差异在统计上多表现为数学类/核心更占优势的方向
+- 与语言类课程相关的结果差异在样本中相对不明显或证据较弱，不宜在报告中过度强调
+- 注意：均指「群体在既往研究中的统计关系」，不表示某一具体学生已处于某种分数段
+
+### 2.4 课程支持研究性解释（course_research_interpretation）
+- 在支持策略的优先级上，该群体在整体层面通常被理解为「课程学习支持需求在群体上相对较低」，但仍可结合阶段性压力做灵活安排。
+- 与语言类课程相关的心理因子独立关联在既有证据中整体较弱，报告中对语言类仅作温和、辅助性学习节奏提醒即可。
+- 若个体出现焦虑、UPI 等信号升高，仍应回到「可优先关注数学类与核心/高认知负荷类任务」的研究提示，与群体标签一并理解，且不做个体成绩推断。
+
+### 2.5 报告撰写指引（interpretation_guidance）
+- 报告中应避免将该群体描述为「完全没有风险」或「课程完全无压力」
+- 更适合表述为「当前总体心理负荷相对较低、群体意义上课程支持需求常低于高心理负荷型，但仍需关注阶段性与个体波动」
+- 建议保持规律作息、学习节奏，并在压力源上升时重评任务优先级，而非默认语言类为首要问题
+
+[report_tone] supportive_balanced
+
+
+## 三、分群 1：高心理负荷型（cluster_id=1）
+
+[分群|高心理负荷型|cluster_id:1|population_ratio:0.236]
+
+### 3.1 核心概括（core_summary）
+该群体在 UPI、自杀意念及多项 SCL-90 因子上表现出更高的风险暴露水平，呈现多维度心理负荷同时升高的特征。在样本的群体比较中，与另一群体相比，在数学类与核心课程维度的学习支持相关需求在统计意义上更为突出。
+
+### 3.2 心理特征要点（psychological_characteristics）
+- UPI 阳性率明显更高
+- 自杀意念比例明显更高
+- 在抑郁、焦虑、人际关系敏感、精神病性、偏执、敌对等维度上阳性率显著更高
+- 表现为多维度心理困扰同时升高，而非单一心理因子突出；其中焦虑、UPI 在既往分析中与课程类指标关联更受关注
+
+### 3.3 学业相关群体描述（academic_characteristics，研究语境）
+- 在样本的群体比较中，数学类平均 GPA、核心课程平均 GPA 在组间均呈现与高心理负荷型相一致的统计差异方向（高负荷组在群体上位置更低）
+- 语言类平均 GPA 的差异方向在多数结果中与之一致，但统计证据相对较弱、不宜过度解读为强结论
+- 上述为「分群在样本中的研究性、群体性规律」，不表示某一学生已挂科、已具名课程不及格或已出现某个具体 GPA
+
+### 3.4 课程支持研究性解释（course_research_interpretation）
+- 在支持规划上，可优先将「数学类、核心/编程等逻辑与节奏要求较高的课程相关学习支持」放在较前位置（基于群体与因子关联的研究结论，非个体已发生的成绩结果）。
+- 当焦虑相关信号突出时，研究提示在样本中与数学类、核心课程类表现的负向关系相对更稳健，可在建议中把节奏分解、分步投入、降低启动难度等策略与这些课程任务类型对应起来。
+- UPI 升高时，研究提示在样本中与核心课程表现的关系值得重视，可优先在「核心/基础、延续性要求高的课」上保持资源与注意力的可预期投入。
+- 对语言类课程：在证据上多为较弱或提示性，报告中宜采用温和、非主干风险的表述，避免与数学/核心并列为同等强度的「问题课程」叙事。
+
+### 3.5 报告撰写指引（interpretation_guidance）
+- 报告中应强调「心理负荷较高、群体上课程支持需求在数学与核心类更突出」的研究性理解，不得写成临床诊断，也不得写成该生某门课已不及格
+- 应同时写清「本档案无个体成绩」的边界，把「群体规律」与「个人建议」用「通常」「可优先关注」等可检验表述衔接
+- 若同时伴随自杀意念或明显心理危机信号，应优先触发高等级安全与支持表述，不将课程建议置于求助与安全需求之上
+
+[report_tone] supportive_cautious
+
+
+## 四、RAG 知识条文总表（来源：psych_rag_kb.csv）
+
+# 每条条目格式：[KB_ID] 元信息… 后接正文。字段与 CSV 列一致，便于与向量库 id 对应。
+
+[KB_ID:1]
+topic: cluster_low_burden_interpretation
+source_type: concept_explanation
+applicable_clusters: 低心理负荷相对平稳型
+applicable_flags: （空）
+risk_level: low
+source: study_derived
+content: 低心理负荷相对平稳型并不意味着学生不存在任何心理压力，而是表示其整体心理负荷水平相对较低，当前更接近「相对平稳但仍需关注变化」的状态。
+
+[KB_ID:2]
+topic: cluster_high_burden_interpretation
+source_type: concept_explanation
+applicable_clusters: 高心理负荷型
+applicable_flags: （空）
+risk_level: medium
+source: study_derived
+content: 高心理负荷型表示学生在多个心理风险维度上同时表现出较高负荷，其特点更接近多维度心理困扰共现，而不是单一因子问题。
+
+[KB_ID:3]
+topic: upi_interpretation
+source_type: concept_explanation
+applicable_clusters: （空）
+applicable_flags: upi_flag
+risk_level: medium
+source: self_curated
+content: UPI 阳性通常提示学生在整体心理健康风险筛查中呈现更高关注需求，应结合其他心理因子与现实表现综合理解，而非单独作出结论。
+
+[KB_ID:4]
+topic: depression_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_depression_flag
+risk_level: medium
+source: self_curated
+content: 抑郁相关阳性信号可能伴随学习动力下降、兴趣减弱、精力不足和自我评价降低，在学业任务执行中可能表现为拖延、效率下降或持续疲惫。
+
+[KB_ID:5]
+topic: anxiety_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: self_curated
+content: 焦虑相关阳性信号可能表现为持续紧张、担忧增加、注意力易分散以及对结果过度担心，可能对考试表现和学习效率造成影响。
+
+[KB_ID:6]
+topic: interpersonal_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_interpersonal_sensitivity_flag
+risk_level: medium
+source: self_curated
+content: 人际关系敏感相关阳性信号可能表现为对评价更敏感、在社交或合作情境中更容易产生压力，这可能间接影响课堂参与、合作学习与求助行为。
+
+[KB_ID:7]
+topic: obsessive_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_obsessive_flag
+risk_level: medium
+source: self_curated
+content: 强迫相关阳性信号可能表现为反复确认、对细节高度在意或难以停止某些思维与行为，在学习中可能表现为效率受损或完美主义压力增加。
+
+[KB_ID:8]
+topic: psychoticism_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_psychoticism_flag
+risk_level: high
+source: self_curated
+content: 精神病性维度阳性信号在非临床筛查中仅表示相关风险负荷较高，不能直接等同于精神障碍诊断，应特别注意审慎表述与后续专业支持建议。
+
+[KB_ID:9]
+topic: paranoid_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_paranoid_flag
+risk_level: medium
+source: self_curated
+content: 偏执相关阳性信号可能与不信任感增加、对他人评价更敏感有关，在学习和社交场景中可能增加误解和压力感。
+
+[KB_ID:10]
+topic: hostility_interpretation
+source_type: concept_explanation
+applicable_flags: scl90_hostility_flag
+risk_level: medium
+source: self_curated
+content: 敌对相关阳性信号可能与易烦躁、情绪控制压力增加有关，可能影响人际互动和日常学习状态。
+
+[KB_ID:11]
+topic: low_burden_general_support
+source_type: support_recommendation
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: self_curated
+content: 对整体状态相对平稳的学生，建议继续保持规律作息、稳定学习节奏，并在阶段性考试、课程压力或求职准备期间主动监测自身压力变化。
+
+[KB_ID:12]
+topic: high_burden_general_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 对于整体心理负荷较高的学生，建议优先采用低门槛、可持续的支持方式，如规律作息、任务分解、固定学习时段、逐步求助，而非试图一次性解决所有问题。
+
+[KB_ID:13]
+topic: anxiety_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: self_curated
+content: 若焦虑负担较高，建议将学习任务拆解为更小单元，并使用固定作息、清单化任务管理和考试前复习模板，以减少不确定性带来的额外压力。
+
+[KB_ID:14]
+topic: depression_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_depression_flag
+risk_level: medium
+source: self_curated
+content: 若抑郁相关负荷较高，可优先从恢复日常节律入手，例如固定起居时间、减少长期熬夜、设置可完成的小目标，并通过逐步恢复学习节奏降低无力感。
+
+[KB_ID:15]
+topic: interpersonal_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_interpersonal_sensitivity_flag
+risk_level: medium
+source: self_curated
+content: 若人际敏感较突出，建议优先采用低压力方式建立支持联系，例如从固定同伴、导师沟通或小范围交流开始，减少对单次互动结果的过度解释。
+
+[KB_ID:16]
+topic: obsessive_support
+source_type: support_recommendation
+applicable_flags: scl90_obsessive_flag
+risk_level: medium
+source: self_curated
+content: 若强迫相关特征较突出，建议在学习中使用「完成优先于完美」的原则，限定单项任务投入时间，避免因过度反复检查而影响整体学习推进。
+
+[KB_ID:17]
+topic: hostility_support
+source_type: support_recommendation
+applicable_flags: scl90_hostility_flag
+risk_level: medium
+source: self_curated
+content: 若敌对或易烦躁倾向较明显，建议在高压学习阶段预留短时休息和情绪缓冲时间，避免在明显情绪激活状态下继续高强度学习任务。
+
+[KB_ID:18]
+topic: sleep_routine_support
+source_type: support_recommendation
+applicable_clusters: 高心理负荷型
+applicable_flags: upi_flag
+risk_level: medium
+source: self_curated
+content: 当整体心理筛检提示负荷较高时，优先恢复睡眠、进食和日常节律通常比一次性追求大量学习补偿更重要，因为节律恢复有助于稳定情绪和注意力。
+
+[KB_ID:19]
+topic: academic_decline_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+applicable_flags: academic_risk
+risk_level: medium
+source: self_curated
+content: 若学生处于较高心理负荷且学业风险升高，建议优先按课程重要性排序任务，先保障核心课程、必修课程和近期截止任务的完成。
+
+[KB_ID:20]
+topic: gpa_low_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 当学生平均 GPA 处于相对不利位置时，建议采用「最低维持线+重点突破」策略，即先避免进一步失分，再集中支持关键课程。
+
+[KB_ID:21]
+topic: core_course_support
+source_type: academic_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 若核心课程 GPA 偏低，建议优先识别对专业能力和后续课程影响较大的课程模块，避免把精力平均分散到所有任务上。
+
+[KB_ID:22]
+topic: high_volatility_support
+source_type: academic_support
+applicable_flags: high_volatility
+risk_level: medium
+source: self_curated
+content: 若学生学业表现波动较大，建议结合周计划复盘学习节奏，识别是课程难度变化、情绪状态波动还是作息混乱导致的成绩不稳定。
+
+[KB_ID:23]
+topic: stable_group_academic_support
+source_type: academic_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: self_curated
+content: 对于整体学业表现相对稳定的学生，建议保持已有学习节奏，同时关注阶段性压力源，避免在某一时期因外部变化导致状态突然下滑。
+
+[KB_ID:24]
+topic: help_seeking_general
+source_type: help_seeking_guidance
+risk_level: low
+source: self_curated
+content: 当学生持续感到学习压力、情绪困扰或人际负担明显增加时，主动寻求学校心理中心、辅导员、导师或可信赖同伴的支持通常比独自承受更有效。
+
+[KB_ID:25]
+topic: help_seeking_high_burden
+source_type: help_seeking_guidance
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: self_curated
+content: 对于高心理负荷型学生，建议将求助视为资源使用而非能力不足，可优先从信息性求助开始，如咨询课程安排、学习支持或心理服务流程。
+
+[KB_ID:26]
+topic: suicidal_ideation_help_seeking
+source_type: help_seeking_guidance
+applicable_flags: suicidal_ideation
+risk_level: high
+source: self_curated
+content: 若存在自杀意念相关信号，报告中应明确建议尽快联系专业心理支持资源或学校相关支持渠道，并强调自动生成内容不能替代专业评估。
+
+[KB_ID:27]
+topic: academic_risk_help_seeking
+source_type: help_seeking_guidance
+applicable_flags: academic_risk
+risk_level: medium
+source: self_curated
+content: 若学生同时存在心理负荷升高与学业风险信号，建议尽早联系学习支持资源，如导师、辅导员、学业帮扶或课程咨询渠道。
+
+[KB_ID:28]
+topic: non_diagnostic_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 本报告基于既有心理测评与学业数据自动生成，仅用于辅助理解当前状态与支持性建议，不构成临床诊断结论。
+
+[KB_ID:29]
+topic: non_replacement_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 自动生成报告不能替代专业心理咨询、医学评估或危机干预；如存在明显风险信号，应优先寻求人工和专业支持。
+
+[KB_ID:30]
+topic: cluster_explanation_boundary
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 聚类归属反映的是样本内部相对心理负荷差异，用于研究和解释，不应被理解为固定不变的个人标签。
+
+[KB_ID:31]
+topic: balanced_language_guideline
+source_type: boundary_statement
+risk_level: low
+source: self_curated
+content: 报告应使用支持性、非诊断化、非污名化语言，避免夸大风险，也避免弱化明显困难。
+
+[KB_ID:32]
+topic: trajectory_interpretation
+source_type: concept_explanation
+risk_level: low
+source: self_curated
+content: 学业轨迹描述用于补充理解学生在大学阶段的变化趋势，应与当前心理状态和学业表现共同解释，而不应单独作为风险定性依据。
+
+[KB_ID:33]
+topic: math_course_support_anxiety
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 数学类课程常对持续专注、节奏稳定与考试情境下情绪调节要求较高。在焦虑较突出时，可优先采用分步练习、固定复盘、低负担的重复与间隔回顾，避免将复习高度集中在考前一两次突击。本建议基于课程类型与学习策略的一般性支持，不表示该生已有某门数学课的具体成绩。
+
+[KB_ID:34]
+topic: math_course_group_pattern
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: course_insight_2024
+content: 在既往样本的群体比较中，高心理负荷型在数学类课程相关表现的研究指标上，整体相对低于另一分群。可将这一规律理解为在支持优先级上，数学类更可能需要节奏与分步化投入方面的关注，而不是推断该生已处于不利分数。
+
+[KB_ID:35]
+topic: core_cs_support_anxiety
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 核心类课程与编程/算法类学习往往更依赖持续投入、任务启动与对中间结果的坚持。在焦虑水平较高时，可优先为这类课程保留稳定的小块学习时段、拆分子目标，并用清单降低不确定性；不宜与个体某门课是否已挂科挂钩表述。
+
+[KB_ID:36]
+topic: core_cs_support_upi
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: upi_flag
+risk_level: medium
+source: course_insight_2024
+content: UPI 提示整体心理风险需关注时，在样本中常与核心类课程维度的学习支持需要一并讨论。可优先在基础与延续性要求高的核心任务上使用最小可完成单元策略，把启动难度压到可承受范围。仅为群体与因子层面的支持性提示。
+
+[KB_ID:37]
+topic: upi_core_course_priority
+source_type: course_category_support
+applicable_flags: upi_flag
+risk_level: medium
+source: course_insight_2024
+content: 在仅有心理测评、无个人成绩单的前提下，UPI 升高时可参考研究提示，将关注重点放在与核心/基础、编程与主干课程相关的学习节奏与支持资源对接上，而不是假设该生已出现具体 GPA。
+
+[KB_ID:38]
+topic: min_viable_task_programming
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: low
+source: course_insight_2024
+content: 在编程/算法或实验性核心任务中，高心理负荷且焦虑时，可尝试每日设定最小可完成的一小段可运行/可交差输出，以维持链条不断裂；避免在高度激活状态下做超长连续攻坚。非个体成绩判断。
+
+[KB_ID:39]
+topic: math_anxiety_research_narrative
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 研究样本中，焦虑因子与数学类、核心类课程维度的负向统计关联相对其它因子更为稳健。用于报告时，可表述为在支持计划上可优先为逻辑与节奏要求高的数学/核心任务预置缓冲与分步，避免写成该生数学已考差。
+
+[KB_ID:40]
+topic: anxiety_flag_math_core_triage
+source_type: course_category_support
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 当焦虑相关筛查为阳性、且讨论课程支持时，可温和提示优先关注数学与核心/编程等类型的节奏与分步，而非在缺乏个体成绩时描述该生已存在的分数结果。对语言类仅作次要的、非支配性关注。
+
+[KB_ID:41]
+topic: high_cluster_course_support_mix
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: low
+source: course_insight_2024
+content: 在分群意义上，高心理负荷型在样本中与数学与核心/编程类学习支持需要相关的研究规律较突出。写作时应坚持群体与研究的表述，不虚构个体课程名或具体分数。
+
+[KB_ID:42]
+topic: language_course_mild_hint
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在样本中，语言类成绩与单因子心理指标的独立统计关联整体较弱。对语言类学习仅建议温和关注节奏与任务完成的一贯性，不宜写成核心风险点或与数学/核心并列为主压力源。
+
+[KB_ID:43]
+topic: language_course_mild_universal
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在整体压力上升但仍属相对平稳分群时，对语言类课程可保持轻量、辅助性的时间管理与持续性提示，不夸大其与心理因子的关系。非个体化成绩结论。
+
+[KB_ID:44]
+topic: language_non_dominant_principle
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: low
+source: course_insight_2024
+content: 尽管高心理负荷型在更多课程维度上需支持，研究对语言类独立关联的证据较弱。报告中对语言类学习建议宜短、平、实，不使其在篇幅或严重程度上超过数学/核心等证据更强的方向。
+
+[KB_ID:45]
+topic: low_burden_math_core_steady
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在群体研究框架下，低心理负荷相对平稳型在数学类与核心课程维度的组间比较上常表现相对更稳。可叙述为在课程支持上通常可低于高心理负荷型分配强度，但个体仍可能因单因子波动需要局部加强。无个体成绩时勿写该生已稳/已高。
+
+[KB_ID:46]
+topic: non_diagnostic_course_boundary
+source_type: course_category_support
+risk_level: low
+source: course_insight_2024
+content: 所有关于数学、核心/编程与语言类课程的建议，均须作为基于分群与心理因子的教育性、研究性支持提示；不得将群体规律写成该生某门课已发生的挂科、排名或绩点。
+
+
+## 五、安全与合规规则（来源：risk_rules.json）
+
+# 按 rule_name 列出；触发条件与必含/禁含句式供报告审阅与写作参考。
+
+[规则|must_add_boundary_statement|priority:high|trigger:always]
+must_include:
+- 本报告仅用于辅助支持，不构成临床诊断结论。
+- 自动生成内容不能替代专业心理咨询或医学评估。
+
+[规则|suicidal_ideation_high_priority_support|priority:critical|trigger:suicidal_ideation=1]
+must_include:
+- 当前存在较高优先级关注信号，建议尽快联系专业心理支持资源。
+- 如学生当前处于明显危险状态，应优先寻求线下人工与专业支持。
+must_not_include: 问题不大；不需要担心；靠自己调整即可；可以暂时忽略
+
+[规则|high_burden_cluster_requires_supportive_tone|priority:high|trigger:cluster_name=高心理负荷型]
+must_include:
+- 应优先采用可持续、低门槛的支持策略。
+- 建议关注压力管理、学习节奏与求助行为，并结合该生当前筛查信号综合理解。
+style_constraints: 避免污名化措辞；避免将聚类归属表述为疾病诊断；避免绝对化判断
+
+[规则|low_burden_cluster_no_over_pathologizing|priority:medium|trigger:cluster_name=低心理负荷相对平稳型]
+must_include: 当前总体状态相对平稳，但仍建议关注阶段性压力变化。
+must_not_include: 严重心理问题；明显高危；高度危险
+
+[规则|no_clinical_diagnosis_language|priority:critical|trigger:always]
+must_not_include: 你患有抑郁症；你患有焦虑症；你属于精神障碍患者；你已经确诊；必须药物治疗
+
+[规则|cluster_is_not_fixed_label|priority:medium|trigger:always]
+must_include: 聚类结果反映的是当前样本中的相对群体归属，用于解释与支持，不是固定不变的人格标签。
+
+
+## 六、写作风格参考（来源：report_style_rules.json，可与 run_agent 当前 prompt 合并理解）
+
+- 整体语气：客观、支持性、非诊断化、非污名化
+- 禁用的风格：命令式说教；绝对化判断；临床诊断化语言；情绪化夸大表述；空泛鸡汤
+# 原 structure 列表中的「学业表现与轨迹概览」在仅心理输入版中已由当前五段式报告结构替代，索引时可忽略旧结构或按提示词五段为准。
+
+writing_constraints:
+- 所有结论必须可由输入数据、cluster 知识或检索知识支持
+- 不允许编造未提供的事实
+- 如存在高风险信号，必须优先呈现求助建议
+- 报告应体现分群驱动的个体化解释，而非泛化模板堆砌
+
+recommended_phrases: 当前结果提示…；从已有测评与信息看…；该群体通常表现为…；建议优先关注…；本报告仅用于辅助支持…
+
+# ==============================================================================
+# 文件结束
+# ==============================================================================

@@ -1,0 +1,124 @@
+# 索引用_03_RAG课程类别支持_kb33-46（来源：psych_rag_kb.csv，source_type: course_category_support）
+# 编码：UTF-8
+# 与研究发现一致：数学类/核心(编程)优先、语言类弱提示；不推断个体绩点。
+#
+
+[KB_ID:33]
+topic: math_course_support_anxiety
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 数学类课程常对持续专注、节奏稳定与考试情境下情绪调节要求较高。在焦虑较突出时，可优先采用分步练习、固定复盘、低负担的重复与间隔回顾，避免将复习高度集中在考前一两次突击。本建议基于课程类型与学习策略的一般性支持，不表示该生已有某门数学课的具体成绩。
+
+[KB_ID:34]
+topic: math_course_group_pattern
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: medium
+source: course_insight_2024
+content: 在既往样本的群体比较中，高心理负荷型在数学类课程相关表现的研究指标上，整体相对低于另一分群。可将这一规律理解为在支持优先级上，数学类更可能需要节奏与分步化投入方面的关注，而不是推断该生已处于不利分数。
+
+[KB_ID:35]
+topic: core_cs_support_anxiety
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 核心类课程与编程/算法类学习往往更依赖持续投入、任务启动与对中间结果的坚持。在焦虑水平较高时，可优先为这类课程保留稳定的小块学习时段、拆分子目标，并用清单降低不确定性；不宜与个体某门课是否已挂科挂钩表述。
+
+[KB_ID:36]
+topic: core_cs_support_upi
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: upi_flag
+risk_level: medium
+source: course_insight_2024
+content: UPI 提示整体心理风险需关注时，在样本中常与核心类课程维度的学习支持需要一并讨论。可优先在基础与延续性要求高的核心任务上使用最小可完成单元策略，把启动难度压到可承受范围。仅为群体与因子层面的支持性提示。
+
+[KB_ID:37]
+topic: upi_core_course_priority
+source_type: course_category_support
+applicable_flags: upi_flag
+risk_level: medium
+source: course_insight_2024
+content: 在仅有心理测评、无个人成绩单的前提下，UPI 升高时可参考研究提示，将关注重点放在与核心/基础、编程与主干课程相关的学习节奏与支持资源对接上，而不是假设该生已出现具体 GPA。
+
+[KB_ID:38]
+topic: min_viable_task_programming
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: low
+source: course_insight_2024
+content: 在编程/算法或实验性核心任务中，高心理负荷且焦虑时，可尝试每日设定最小可完成的一小段可运行/可交差输出，以维持链条不断裂；避免在高度激活状态下做超长连续攻坚。非个体成绩判断。
+
+[KB_ID:39]
+topic: math_anxiety_research_narrative
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 研究样本中，焦虑因子与数学类、核心类课程维度的负向统计关联相对其它因子更为稳健。用于报告时，可表述为在支持计划上可优先为逻辑与节奏要求高的数学/核心任务预置缓冲与分步，避免写成该生数学已考差。
+
+[KB_ID:40]
+topic: anxiety_flag_math_core_triage
+source_type: course_category_support
+applicable_flags: scl90_anxiety_flag
+risk_level: medium
+source: course_insight_2024
+content: 当焦虑相关筛查为阳性、且讨论课程支持时，可温和提示优先关注数学与核心/编程等类型的节奏与分步，而非在缺乏个体成绩时描述该生已存在的分数结果。对语言类仅作次要的、非支配性关注。
+
+[KB_ID:41]
+topic: high_cluster_course_support_mix
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: low
+source: course_insight_2024
+content: 在分群意义上，高心理负荷型在样本中与数学与核心/编程类学习支持需要相关的研究规律较突出。写作时应坚持群体与研究的表述，不虚构个体课程名或具体分数。
+
+[KB_ID:42]
+topic: language_course_mild_hint
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在样本中，语言类成绩与单因子心理指标的独立统计关联整体较弱。对语言类学习仅建议温和关注节奏与任务完成的一贯性，不宜写成核心风险点或与数学/核心并列为主压力源。
+
+[KB_ID:43]
+topic: language_course_mild_universal
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在整体压力上升但仍属相对平稳分群时，对语言类课程可保持轻量、辅助性的时间管理与持续性提示，不夸大其与心理因子的关系。非个体化成绩结论。
+
+[KB_ID:44]
+topic: language_non_dominant_principle
+source_type: course_category_support
+applicable_clusters: 高心理负荷型
+risk_level: low
+source: course_insight_2024
+content: 尽管高心理负荷型在更多课程维度上需支持，研究对语言类独立关联的证据较弱。报告中对语言类学习建议宜短、平、实，不使其在篇幅或严重程度上超过数学/核心等证据更强的方向。
+
+[KB_ID:45]
+topic: low_burden_math_core_steady
+source_type: course_category_support
+applicable_clusters: 低心理负荷相对平稳型
+risk_level: low
+source: course_insight_2024
+content: 在群体研究框架下，低心理负荷相对平稳型在数学类与核心课程维度的组间比较上常表现相对更稳。可叙述为在课程支持上通常可低于高心理负荷型分配强度，但个体仍可能因单因子波动需要局部加强。无个体成绩时勿写该生已稳/已高。
+
+[KB_ID:46]
+topic: non_diagnostic_course_boundary
+source_type: course_category_support
+risk_level: low
+source: course_insight_2024
+content: 所有关于数学、核心/编程与语言类课程的建议，均须作为基于分群与心理因子的教育性、研究性支持提示；不得将群体规律写成该生某门课已发生的挂科、排名或绩点。
+
+# ==============================================================================
+# 文件结束（KB_ID 33–46）
+# ==============================================================================

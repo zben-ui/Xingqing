@@ -1,0 +1,85 @@
+[
+    {
+      "rule_name": "must_add_boundary_statement",
+      "priority": "high",
+      "trigger": {
+        "always": true
+      },
+      "must_include": [
+        "本报告仅用于辅助支持，不构成临床诊断结论。",
+        "自动生成内容不能替代专业心理咨询或医学评估。"
+      ]
+    },
+    {
+      "rule_name": "suicidal_ideation_high_priority_support",
+      "priority": "critical",
+      "trigger": {
+        "suicidal_ideation": 1
+      },
+      "must_include": [
+        "当前存在较高优先级关注信号，建议尽快联系专业心理支持资源。",
+        "如学生当前处于明显危险状态，应优先寻求线下人工与专业支持。"
+      ],
+      "must_not_include": [
+        "问题不大",
+        "不需要担心",
+        "靠自己调整即可",
+        "可以暂时忽略"
+      ]
+    },
+    {
+      "rule_name": "high_burden_cluster_requires_supportive_tone",
+      "priority": "high",
+      "trigger": {
+        "cluster_name": "高心理负荷型"
+      },
+      "must_include": [
+        "应优先采用可持续、低门槛的支持策略。",
+        "建议关注压力管理、学习节奏与求助行为，并结合该生当前筛查信号综合理解。"
+      ],
+      "style_constraints": [
+        "避免污名化措辞",
+        "避免将聚类归属表述为疾病诊断",
+        "避免绝对化判断"
+      ]
+    },
+    {
+      "rule_name": "low_burden_cluster_no_over_pathologizing",
+      "priority": "medium",
+      "trigger": {
+        "cluster_name": "低心理负荷相对平稳型"
+      },
+      "must_include": [
+        "当前总体状态相对平稳，但仍建议关注阶段性压力变化。"
+      ],
+      "must_not_include": [
+        "严重心理问题",
+        "明显高危",
+        "高度危险"
+      ]
+    },
+    {
+      "rule_name": "no_clinical_diagnosis_language",
+      "priority": "critical",
+      "trigger": {
+        "always": true
+      },
+      "must_not_include": [
+        "你患有抑郁症",
+        "你患有焦虑症",
+        "你属于精神障碍患者",
+        "你已经确诊",
+        "必须药物治疗"
+      ]
+    },
+    {
+      "rule_name": "cluster_is_not_fixed_label",
+      "priority": "medium",
+      "trigger": {
+        "always": true
+      },
+      "must_include": [
+        "聚类结果反映的是当前样本中的相对群体归属，用于解释与支持，不是固定不变的人格标签。"
+      ]
+    }
+  ]
